@@ -3,9 +3,9 @@ kind: Kustomization
 namespace: argocd
 
 # This will install notifications directly
-resources:
+#resources:
   # https://argocd-notifications.readthedocs.io/en/stable/#kustomize-getting-started
-  - github.com/argoproj-labs/argocd-notifications/manifests/controller?ref=v1.2.0
+  #- github.com/argoproj-labs/argocd-notifications/manifests/controller?ref=v1.2.0
 
 # This will apply a patch to the notifications
 patches:
