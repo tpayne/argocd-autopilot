@@ -82,7 +82,7 @@ spec:
         jsonPointers:
         - /status
         kind: Application
-      project: argocd
+      project: custom-env
       source:
         path: '{{ srcPath }}'
         repoURL: '{{ srcRepoURL }}'
