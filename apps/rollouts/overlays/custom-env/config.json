@@ -1,0 +1,13 @@
+{
+  "appName": "rollouts",
+  "userGivenName": "rollouts",
+  "destNamespace": "argocd",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/rollouts/overlays/custom-env",
+  "srcRepoURL": "https://github.com/tpayne/argocd-autopilot.git",
+  "srcTargetRevision": "",
+  "labels": {
+    "codefresh_io_entity": "component",
+    "codefresh_io_internal": "true"
+  }
+}

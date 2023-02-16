@@ -1,0 +1,13 @@
+{
+  "appName": "events",
+  "userGivenName": "events",
+  "destNamespace": "argocd",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/events/overlays/custom-env",
+  "srcRepoURL": "https://github.com/tpayne/argocd-autopilot.git",
+  "srcTargetRevision": "",
+  "labels": {
+    "codefresh_io_entity": "component",
+    "codefresh_io_internal": "true"
+  }
+}
