@@ -11,6 +11,18 @@ configMapGenerator:
         key: git_username
         name: autopilot-secret
   name: argocd-cm
+- behavior: merge
+  literals:
+      # These changes are for logging...
+      - reposerver.log.level=warn
+      - server.log.level=warn
+      - controller.log.level=warn
+      # These changes are to help with some HA changes...
+      - controller.repo.server.timeout.seconds=180
+      # These two may not be needed given current config...
+      - controller.status.processors=20
+      - controller.controller.operation.processors=10
+  name: argocd-cmd-params-cm
 kind: Kustomization
 namespace: argocd
 resources:
