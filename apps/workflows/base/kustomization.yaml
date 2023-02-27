@@ -3,7 +3,7 @@ kind: Kustomization
 patches:
   - patch: |-
       - op: replace
-        path: /spec/template/spec/containers/0/args/-
+        path: /spec/template/spec/containers/0/args/
         value: server
     target:
       group: apps
