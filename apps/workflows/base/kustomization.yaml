@@ -14,7 +14,7 @@ patches:
 patchesJson6902:
   - patch: |-
       - op: replace
-        path: /spec/template/spec/containers/0/command
+        path: /spec/template/spec/containers/0/args
         value:
         - server
         -  --auth-mode=server
