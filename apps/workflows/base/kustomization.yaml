@@ -9,6 +9,15 @@ patches:
     name: argo-server
     version: v1
 - patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/args/server
+      value: --auth-mode=server
+  target:
+    group: apps
+    kind: Deployment
+    name: argo-server
+    version: v1
+- patch: |-
     - op: add
       path: /spec/template/spec/containers/0/args/-
       value: --loglevel=warn
