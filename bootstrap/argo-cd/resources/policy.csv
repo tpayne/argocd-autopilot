@@ -1,4 +1,4 @@
-    p, role:argocd-server, applications, *, */*, allow
+p, role:argocd-server, applications, *, */*, allow
     p, role:argocd-server, clusters, get, *, allow
     p, role:argocd-server, repositories, get, *, allow
     p, role:argocd-server, repositories, create, *, allow
