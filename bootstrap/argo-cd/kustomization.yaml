@@ -14,13 +14,13 @@ configMapGenerator:
 - behavior: merge
   literals:
   - |
-    accounts.argorunner: apiKey,login
+    accounts.argorunner: apiKey, login
     accounts.argorunner.enabled: "true"
   name: argocd-cm
 - behavior: merge
   literals:
   - |
-    accounts.argorunner: apiKey,login
+    accounts.argorunner: apiKey, login
     accounts.argorunner.enabled: "true"
     policy.default: role:readonly
     policy.csv: |
