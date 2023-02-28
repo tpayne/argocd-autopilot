@@ -1,18 +1,18 @@
-p, role:argocd-server, applications, *, */*, allow
-p, role:argocd-server, clusters, get, *, allow
-p, role:argocd-server, repositories, get, *, allow
-p, role:argocd-server, repositories, create, *, allow
-p, role:argocd-server, repositories, update, *, allow
-p, role:argocd-server, repositories, delete, *, allow
-p, role:argocd-server, logs, get, *, allow
-p, role:argocd-server, exec, create, */*, allow    
-g, argorunner, role:oargocd-server
-p, role:org-admin, applications, *, */*, allow
-p, role:org-admin, clusters, get, *, allow
-p, role:org-admin, repositories, get, *, allow
-p, role:org-admin, repositories, create, *, allow
-p, role:org-admin, repositories, update, *, allow
-p, role:org-admin, repositories, delete, *, allow
-p, role:org-admin, logs, get, *, allow
-p, role:org-admin, exec, create, */*, allow
-g, argorunner, role:org-admin
+p,role:argocd-server,applications,*,*/*,allow
+p,role:argocd-server,clusters,get,*,allow
+p,role:argocd-server,repositories,get,*,allow
+p,role:argocd-server,repositories,create,*,allow
+p,role:argocd-server,repositories,update,*,allow
+p,role:argocd-server,repositories,delete,*,allow
+p,role:argocd-server,logs,get,*,allow
+p,role:argocd-server,exec,create,*/*,allow
+g,argorunner,role:oargocd-server
+p,role:org-admin,applications,*,*/*,allow
+p,role:org-admin,clusters,get,*,allow
+p,role:org-admin,repositories,get,*,allow
+p,role:org-admin,repositories,create,*,allow
+p,role:org-admin,repositories,update,*,allow
+p,role:org-admin,repositories,delete,*,allow
+p,role:org-admin,logs,get,*,allow
+p,role:org-admin,exec,create,*/*,allow
+g,argorunner,role:org-admin
