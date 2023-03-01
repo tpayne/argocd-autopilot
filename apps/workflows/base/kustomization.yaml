@@ -20,6 +20,8 @@ patchesJson6902:
         -  --auth-mode=server
         -  --namespaced
         -  --loglevel=warn
+        -  --namespace argocd
+        -  --insecure-skip-verify
     target:
       group: apps
       kind: Deployment
