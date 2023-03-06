@@ -3,6 +3,7 @@ secretGenerator:
 - behavior: replace
   literals:
    - email-cmd=test
+# These will need to be added manually to the secret to stop synching of values
 #  - email-username=someaddress@example.com
 #  - email-password=samplePwd
   name: argocd-notifications-secret
