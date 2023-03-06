@@ -51,7 +51,7 @@ configMapGenerator:
       - controller.status.processors=20
       - controller.controller.operation.processors=10
   name: argocd-cmd-params-cm
-- behavior: replace
+- behavior: merge
   files:
   -  ./resources/notificationsConfigMap.yaml
   name: argocd-notifications-cm
