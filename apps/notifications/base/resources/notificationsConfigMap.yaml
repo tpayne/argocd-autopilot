@@ -3,6 +3,12 @@ data:
 #  service.teams: |
 #    recipientUrls:
 #      <channelName>: <webURL>
+  service.email.gmail: |
+    username: $email-username
+    password: $email-password
+    host: smtp.gmail.com
+    port: 465
+    from: $email-username
   template.app-created: |
     email:
       subject: Application {{.app.metadata.name}} has been created.
