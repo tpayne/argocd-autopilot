@@ -5,7 +5,7 @@ namespace: argocd
 # This will install notifications directly
 resources:
   # https://argocd-notifications.readthedocs.io/en/stable/#kustomize-getting-started
-  - github.com/argoproj-labs/argocd-notifications/manifests/controller?ref=v1.2.0
+  # - github.com/argoproj-labs/argocd-notifications/manifests/controller?ref=v1.2.0
   
 # This will apply a patch to the notifications
 #patches:
@@ -14,15 +14,15 @@ resources:
 #      kind: ConfigMap
 #      name: argocd-notifications-cm
 
-#patchesJson6902:
-#  - patch: |-
-#      - op: replace
-#        path: /spec/template/spec/containers/0/command
-#        value:
-#        - /app/argocd-notifications-backend
-#        -  controller
-#        -  --loglevel
-#        -  warn
-#    target:
-#      kind: Deployment
-#      name: argocd-notifications-controller
+patchesJson6902:
+  - patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/command
+        value:
+        - /app/argocd-notifications-backend
+        -  controller
+        -  --loglevel
+        -  warn
+    target:
+      kind: Deployment
+      name: argocd-notifications-controller
