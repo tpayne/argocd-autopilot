@@ -8,6 +8,7 @@ secretGenerator:
 generatorOptions:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
 
 configMapGenerator:
 - behavior: merge
