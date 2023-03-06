@@ -8,11 +8,11 @@ resources:
   # - github.com/argoproj-labs/argocd-notifications/manifests/controller?ref=v1.2.0
   
 # This will apply a patch to the notifications
-#patches:
-#  - path: ./resources/notificationsConfigMap.yaml
-#    target:
-#      kind: ConfigMap
-#      name: argocd-notifications-cm
+patches:
+  - path: ./resources/notificationsConfigMap.yaml
+    target:
+      kind: ConfigMap
+      name: argocd-notifications-cm
 
 patchesJson6902:
   - patch: |-
