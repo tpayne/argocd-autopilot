@@ -43,18 +43,18 @@ configMapGenerator:
   -  ./resources/notificationsConfigMap.yaml
   name: argocd-notifications-cm
 
-patchesJson6902:
-  - patch: |-
-      - op: replace
-        path: /spec/template/spec/containers/0/command
-        value:
-        - /app/argocd-notifications-backend
-        -  controller
-        -  --loglevel
-        -  warn
-    target:
-      kind: Deployment
-      name: argocd-notifications-controller
+#patchesJson6902:
+#  - patch: |-
+#      - op: replace
+#        path: /spec/template/spec/containers/0/command
+#        value:
+#        - /app/argocd-notifications-backend
+#        -  controller
+#        -  --loglevel
+#        -  warn
+#    target:
+#      kind: Deployment
+#      name: argocd-notifications-controller
 
 kind: Kustomization
 namespace: argocd
