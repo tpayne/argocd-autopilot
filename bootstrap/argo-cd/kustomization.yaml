@@ -1,46 +1,46 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 secretGenerator:
-- behavior: replace
-  literals:
-   - email-cmd=test
-# These will need to be added manually to the secret to stop synching of values
-#  - email-username=someaddress@example.com
-#  - email-password=samplePwd
-  name: argocd-notifications-secret
+  - behavior: replace
+    literals:
+      - email-cmd=test
+    # These will need to be added manually to the secret to stop synching of values
+    #  - email-username=someaddress@example.com
+    #  - email-password=samplePwd
+    name: argocd-notifications-secret
 generatorOptions:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
     argocd.argoproj.io/sync-options: Prune=false
 
 configMapGenerator:
-- behavior: merge
-  literals:
-  - |
-    repository.credentials=- passwordSecret:
-        key: git_token
-        name: autopilot-secret
-      url: https://github.com/
-      usernameSecret:
-        key: git_username
-        name: autopilot-secret
-  name: argocd-cm
-- behavior: merge
-  literals:
-  - accounts.argorunner=apiKey, login
-  - accounts.argorunner.enabled="true"
-  name: argocd-cm
-- behavior: merge
-  literals:
-  - accounts.argorunner=apiKey, login
-  - accounts.argorunner.enabled="true"
-  - policy.default=role:readonly
-  name: argocd-rbac-cm
-- behavior: merge
-  files:
-  - resources/policy.csv
-  name: argocd-rbac-cm
-- behavior: merge
-  literals:
+  - behavior: merge
+    literals:
+      - |
+        repository.credentials=- passwordSecret:
+            key: git_token
+            name: autopilot-secret
+          url: https://github.com/
+          usernameSecret:
+            key: git_username
+            name: autopilot-secret
+    name: argocd-cm
+  - behavior: merge
+    literals:
+      - accounts.argorunner=apiKey, login
+      - accounts.argorunner.enabled="true"
+    name: argocd-cm
+  - behavior: merge
+    literals:
+      - accounts.argorunner=apiKey, login
+      - accounts.argorunner.enabled="true"
+      - policy.default=role:readonly
+    name: argocd-rbac-cm
+  - behavior: merge
+    files:
+      - resources/policy.csv
+    name: argocd-rbac-cm
+  - behavior: merge
+    literals:
       # These changes are for logging...
       - reposerver.log.level=warn
       - server.log.level=warn
@@ -50,12 +50,12 @@ configMapGenerator:
       # These two may not be needed given current config...
       - controller.status.processors=20
       - controller.controller.operation.processors=10
-  name: argocd-cmd-params-cm
-- behavior: merge
-  files:
-  -  ./resources/notificationsConfigMap.yaml
-  name: argocd-notifications-cm
+    name: argocd-cmd-params-cm
+  - behavior: merge
+    files:
+      - ./resources/notificationsConfigMap.yaml
+    name: argocd-notifications-cm
 kind: Kustomization
 namespace: argocd
 resources:
-- github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.11
+  - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.11
