@@ -22,3 +22,9 @@ To install an Argo installation from this autopilot repo, you will need to do th
 
 That will then install a pre-configured Argo suite into your K8s system
 
+# Notes
+The following references should also be reviewd: -
+- https://argocd-autopilot.readthedocs.io/en/stable/
+- https://argocd-autopilot.readthedocs.io/en/stable/#architecture
+- https://github.com/argoproj-labs/argocd-autopilot
+
