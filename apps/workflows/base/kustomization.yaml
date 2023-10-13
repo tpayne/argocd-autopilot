@@ -28,4 +28,4 @@ patchesJson6902:
       version: v1
 
 resources:
-  - github.com/argoproj/argo-workflows/manifests/namespace-install?ref=v3.4.7
+  - github.com/argoproj/argo-workflows/manifests/namespace-install?ref=v3.5.0
