@@ -1,5 +1,9 @@
 apiVersion: v1
 data:
+  # You will need to see the secret "argocd-notifications-secret"
+  # for defining these values. The $ means that these are values
+  # are read from the secret mentioned above. You do not need
+  # to modify the values here.
   service.email.gmail: |
     username: $email-username
     password: $email-password

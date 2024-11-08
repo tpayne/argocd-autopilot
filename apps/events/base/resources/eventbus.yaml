@@ -1,3 +1,4 @@
+# This event bus is primarily scaled for real use
 apiVersion: argoproj.io/v1alpha1
 kind: EventBus
 metadata:
@@ -21,6 +22,8 @@ spec:
             memory: 1Gi
             ephemeral-storage: 2Gi
 ---
+# This eventbus is a default one and should ideally not be used for 
+# heavy use
 apiVersion: argoproj.io/v1alpha1
 kind: EventBus
 metadata:
