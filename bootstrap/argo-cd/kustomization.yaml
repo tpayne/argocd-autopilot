@@ -4,11 +4,17 @@ secretGenerator:
     literals:
       - email-cmd=test
     # These will need to be added manually to the secret to stop synching of values
+    # The password value needs to be a gmail app secret value - NOT your email pwd
+    # See - https://support.google.com/mail/answer/185833?hl=en-GB
+    #
     #  - email-username=someaddress@example.com
     #  - email-password=samplePwd
     name: argocd-notifications-secret
 generatorOptions:
   annotations:
+    # These annotations will stop the values of the above secret key/value
+    # pairs from being overwritten by a sync, so you can define them
+    # locally
     argocd.argoproj.io/compare-options: IgnoreExtraneous
     argocd.argoproj.io/sync-options: Prune=false
 
