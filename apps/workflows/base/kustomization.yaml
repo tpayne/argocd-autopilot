@@ -40,4 +40,4 @@ configMapGenerator:
     name: workflow-controller-configmap
 
 resources:
-  - github.com/argoproj/argo-workflows/manifests/namespace-install?ref=v3.5.12
+  - github.com/argoproj/argo-workflows/manifests/namespace-install?ref=v3.6.0
