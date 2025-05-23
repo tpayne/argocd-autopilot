@@ -1,13 +1,14 @@
-# Cluster Resources Enhancements
+# Cluster Resources - Namespace Configuration
 
 apiVersion: v1
 kind: Namespace
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-options: Prune=false
-  creationTimestamp: null
   name: argocd
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false  # Prevents deletion of resources unless explicitly specified
+  creationTimestamp: null
 spec: {}
 
-# Ensure to regularly review permission policies and restrict access to sensitive resources.
-# Modify RBAC settings as needed for improved security.
+# Security Recommendations
+# Ensure you regularly review your RBAC settings for the 'argocd' namespace to prevent over-permissioning.
+# Each user should follow the least privilege principle in their access configurations.
