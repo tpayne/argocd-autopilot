@@ -22,7 +22,22 @@ argocd-autopilot project create <PROJECT_NAME> --dest-kube-context <CONTEXT_NAME
 ```
 
 #### RBAC Considerations
-- Regularly review permission policies to ensure the principle of least privilege is adhered to, especially in shared environments.
+- Set appropriate roles for users in your AKS cluster to ensure a secure deployment process.
+- Use least privilege access strategies to define user permissions.
 
-### Notes
-Review the [Argocd-autopilot documentation](https://argocd-autopilot.readthedocs.io/en/stable/) for more detailed instructions.
+### Example Project YAML
+Here’s an example of a project configuration in YAML format:
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: myproject
+  namespace: argocd
+spec:
+  description: My Project for ArgoCD
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: argocd
+  sourceRepos:
+    - '*'
+```
