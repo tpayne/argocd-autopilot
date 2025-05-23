@@ -1,0 +1,13 @@
+# Cluster Resources Enhancements
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
+  creationTimestamp: null
+  name: argocd
+spec: {}
+
+# Ensure to regularly review permission policies and restrict access to sensitive resources.
+# Modify RBAC settings as needed for improved security.
