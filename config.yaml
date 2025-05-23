@@ -1,7 +1,6 @@
 # Centralized Configuration
 
-# Sensitive configurations will now be referred from here.
-# Add your configurations below:
+# Store sensitive configurations here for reference.
 
 argocd_token: <your_token>
 argocd_repo_url: https://github.com/tpayne/argocd-autopilot.git
