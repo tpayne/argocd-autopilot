@@ -36,9 +36,6 @@ configMapGenerator:
       - |
         metricsConfig=port: 8080
         enabled: false
-      - |
-        workflowDefaults=spec:
-          serviceAccountName: argorunner
     name: workflow-controller-configmap
 
 resources:
