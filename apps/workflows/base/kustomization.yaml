@@ -1,46 +1,45 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 patches:
-  - patch: |-
-      - op: add
-        path: /spec/template/spec/containers/0/args/-
-        value: --loglevel=warn
-    target:
-      group: apps
-      kind: Deployment
-      name: workflow-controller
-      version: v1
+- patch: |-
+    - op: add
+      path: /spec/template/spec/containers/0/args/-
+      value: --loglevel=warn
+  target:
+    group: apps
+    kind: Deployment
+    name: workflow-controller
+    version: v1
+- patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/args
+      value:
+      - server
+      -  --auth-mode=server
+      -  --namespaced
+      -  --loglevel=warn
+      -  --insecure-skip-verify
+  target:
+    group: apps
+    kind: Deployment
+    name: argo-server
+    version: v1
 #
 # This is not for use on real systems as it disables auth logins
 # Change the --auth-mode=server to --auth-mode=sso
 #
-patchesJson6902:
-  - patch: |-
-      - op: replace
-        path: /spec/template/spec/containers/0/args
-        value:
-        - server
-        -  --auth-mode=server
-        -  --namespaced
-        -  --loglevel=warn
-        -  --insecure-skip-verify
-    target:
-      group: apps
-      kind: Deployment
-      name: argo-server
-      version: v1
 
 # This patch correctly creates and updates the workflow-controller-configmap
 # using the Strategic Merge Patch format, which is for the `patches` block.
 configMapGenerator:
-  - behavior: merge
-    literals:
-      - |
-        metricsConfig=port: 8080
-        enabled: false
-        workflowDefaults=spec:
-          serviceAccountName: argorunner
-    name: workflow-controller-configmap
+- behavior: merge
+  literals:
+  - |
+    metricsConfig=port: 8080
+    enabled: false
+    workflowDefaults=spec:
+      serviceAccountName: argorunner
+  name: workflow-controller-configmap
 
 resources:
-  - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.20
+- github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.20
