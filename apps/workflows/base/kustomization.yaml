@@ -37,7 +37,8 @@ configMapGenerator:
       - |
         metricsConfig=port: 8080
         enabled: false
+      - |
+        workflowDefaults=
+          spec:
+            serviceAccountName: argorunner
     name: workflow-controller-configmap
-
-resources:
-  - github.com/argoproj/argo-workflows/manifests/namespace-install?ref=v3.7.2
