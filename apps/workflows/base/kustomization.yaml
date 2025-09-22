@@ -30,10 +30,9 @@ patchesJson6902:
       name: argo-server
       version: v1
 
-# This patch creates the workflow-controller-configmap
-# and sets the default service account and metrics config.
+# This patch creates and updates the workflow-controller-configmap
+# using the correct strategic merge patch format.
   - patch: |-
-      apiVersion: v1
       data:
         metricsConfig: |
           port: 8080
@@ -41,9 +40,6 @@ patchesJson6902:
         workflowDefaults: |
           spec:
             serviceAccountName: argorunner
-      kind: ConfigMap
-      metadata:
-        name: workflow-controller-configmap
     target:
       kind: ConfigMap
       name: workflow-controller-configmap
