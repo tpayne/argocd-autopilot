@@ -30,15 +30,23 @@ patchesJson6902:
       name: argo-server
       version: v1
 
-# Modify the controller
-configMapGenerator:
-  - behavior: merge
-    literals:
-      - |
-        metricsConfig=port: 8080
-        enabled: false
-      - |
-        workflowDefaults=
+# This patch creates the workflow-controller-configmap
+# and sets the default service account and metrics config.
+  - patch: |-
+      apiVersion: v1
+      data:
+        metricsConfig: |
+          port: 8080
+          enabled: false
+        workflowDefaults: |
           spec:
             serviceAccountName: argorunner
-    name: workflow-controller-configmap
+      kind: ConfigMap
+      metadata:
+        name: workflow-controller-configmap
+    target:
+      kind: ConfigMap
+      name: workflow-controller-configmap
+
+resources:
+  - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.20
