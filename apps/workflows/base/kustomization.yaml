@@ -32,17 +32,15 @@ patchesJson6902:
 
 # This patch correctly creates and updates the workflow-controller-configmap
 # using the Strategic Merge Patch format, which is for the `patches` block.
-  - patch: |-
-      data:
-        metricsConfig: |
-          port: 8080
-          enabled: false
-        workflowDefaults: |
-          spec:
-            serviceAccountName: argorunner
-    target:
-      kind: ConfigMap
-      name: workflow-controller-configmap
+configMapGenerator:
+  - behavior: merge
+    literals:
+      - |
+        metricsConfig=port: 8080
+        enabled: false
+        workflowDefaults=spec:
+          serviceAccountName: argorunner
+    name: workflow-controller-configmap
 
 resources:
   - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.20
