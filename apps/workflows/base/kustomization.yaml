@@ -40,5 +40,4 @@ configMapGenerator:
 
 resources:
 - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.20
-- resources/namespace.yaml
-- resources/roles.yaml
+
