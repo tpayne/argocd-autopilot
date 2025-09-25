@@ -69,4 +69,4 @@ kind: Kustomization
 namespace: argocd
 resources:
   - github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.20
-  - resources/role.yaml
+  - resources/roles.yaml
