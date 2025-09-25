@@ -1,7 +1,7 @@
 {
   "appName": "workflows",
   "userGivenName": "workflows",
-  "destNamespace": "argocd",
+  "destNamespace": "argo-workflows",
   "destServer": "https://kubernetes.default.svc",
   "srcPath": "apps/workflows/overlays/custom-env",
   "srcRepoURL": "https://github.com/tpayne/argocd-autopilot.git",
